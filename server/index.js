@@ -31,6 +31,10 @@ app.use('/api/assignments', require('./routes/assignments'));
 
 const PORT = process.env.PORT || 5000;
 
+app.get('/', (req, res) => {
+  res.send('health check');
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
