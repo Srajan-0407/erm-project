@@ -23,14 +23,11 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/engineers', require('./routes/engineers'));
-app.use('/api/projects', require('./routes/projects'));
-app.use('/api/assignments', require('./routes/assignments'));
+// Routes - using correct relative paths for Vercel
+app.use('/api/auth', require('../routes/auth'));
+app.use('/api/engineers', require('../routes/engineers'));
+app.use('/api/projects', require('../routes/projects'));
+app.use('/api/assignments', require('../routes/assignments'));
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export for Vercel serverless function
+module.exports = app; 
