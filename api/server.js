@@ -24,10 +24,10 @@ db.once('open', () => {
 });
 
 // Routes - using correct relative paths for Vercel
-app.use('/api/auth', require('../routes/auth'));
-app.use('/api/engineers', require('../routes/engineers'));
-app.use('/api/projects', require('../routes/projects'));
-app.use('/api/assignments', require('../routes/assignments'));
+app.use('/api/auth', require('../server/routes/auth'));
+app.use('/api/engineers', require('../server/routes/engineers'));
+app.use('/api/projects', require('../server/routes/projects'));
+app.use('/api/assignments', require('../server/routes/assignments'));
 
 // Export for Vercel serverless function
 module.exports = app; 
