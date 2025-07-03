@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { User, Engineer, Project, Assignment } from '../types';
 
-const API_BASE_URL = 'https://erm-project-be-git-master-srajan-0407s-projects.vercel.app/';
+const API_BASE_URL = 'https://erm-project-be-git-master-srajan-0407s-projects.vercel.app';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
