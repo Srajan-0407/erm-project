@@ -16,12 +16,14 @@ export function Navigation() {
     { name: 'Engineers', href: '/engineers', icon: Users, managerOnly: true },
     { name: 'Projects', href: '/projects', icon: FolderOpen, managerOnly: true },
     { name: 'Assignments', href: '/assignments', icon: Calendar },
-    { name: 'Profile', href: '/profile', icon: User },
+    { name: 'Profile', href: '/profile', icon: User, engineerOnly: true },
   ];
 
-  const navigationItems = allNavigationItems.filter(item => 
-    !item.managerOnly || user?.role === 'manager'
-  );
+  const navigationItems = allNavigationItems.filter(item => {
+    if (item.managerOnly && user?.role !== 'manager') return false;
+    if (item.engineerOnly && user?.role !== 'engineer') return false;
+    return true;
+  });
 
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
