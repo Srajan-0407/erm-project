@@ -342,7 +342,7 @@ export function AssignmentForm({
               </Button>
               <Button 
                 type="submit" 
-                disabled={isLoading || (capacityInfo?.isOverallocated && !confirm('This will overallocate the engineer. Continue?'))}
+                disabled={isLoading || (capacityInfo?.isOverallocated )}
               >
                 {isLoading ? 'Creating...' : 'Create Assignment'}
               </Button>
